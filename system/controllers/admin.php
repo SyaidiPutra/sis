@@ -7,7 +7,8 @@ class admin extends Controller{
         $this->view('layout/navbar');
         $this->view('layout/sidebar');
 
-        $this->view('admin/index');
+        //$this->view('admin/index');
+        $this->view('admin/siswa');
 
         $this->view('layout/footer');
     }
