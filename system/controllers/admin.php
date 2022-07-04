@@ -17,14 +17,23 @@ class admin extends Controller{
 
         $this->view('layout/footer');
     }
-    public function siswa ($page = null)
+    public function siswa ($page = 'index')
     {
       require_once('admin/siswa.php');
       $siswa = new siswa();
       
       switch ($page) {
-        default:
+        
+        case 'index':
           $siswa->index();
+          break;
+        
+        case 'create':
+          $siswa->create();
+          break;
+        
+        default:
+          
           break;
       }
       
