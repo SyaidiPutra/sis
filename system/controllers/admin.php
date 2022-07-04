@@ -1,6 +1,10 @@
 <?php
 
 class admin extends Controller{
+  
+    public function __construct(){
+      $this->db = new Databases;
+    }
     public function index()
     {
         $this->view('layout/header');
@@ -9,8 +13,7 @@ class admin extends Controller{
           ]);
         $this->view('layout/sidebar');
 
-        //$this->view('admin/index');
-        $this->view('admin/siswa');
+        $this->view('admin/index');
 
         $this->view('layout/footer');
     }
