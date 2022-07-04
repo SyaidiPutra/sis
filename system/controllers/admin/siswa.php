@@ -2,6 +2,11 @@
 
 class siswa extends Controller{
   
+  public function index ()
+  {
+    echo('daftarsiswa'');
+  }
+  
   public function create ()
   {
     $this->view('layout/header');
