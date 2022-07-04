@@ -33,7 +33,7 @@ class admin extends Controller{
           break;
         
         default:
-          
+          die('error 404 : Page Not FFond');
           break;
       }
       
