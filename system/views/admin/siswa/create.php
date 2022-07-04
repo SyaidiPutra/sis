@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group">
                       <label for="tanggal">Tanggal lahir</label>
-                       <input type="date" class="form-control" id="tgl_lahir" placeholder="NISN">
+                       <input type="date" class="form-control" id="tgl_lahir">
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Jenis Kelamin</label>
