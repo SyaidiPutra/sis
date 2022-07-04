@@ -9,5 +9,5 @@ Feature
 * Student Data
 * Teacher Data
 * Class room
-* * Gradebook
-* * Student Attendance List
+* Gradebook
+* Student Attendance List
