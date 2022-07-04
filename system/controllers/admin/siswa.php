@@ -4,7 +4,7 @@ class siswa extends Controller{
   
   public function index ()
   {
-    echo('daftarsiswa'');
+    echo('daftarsiswa');
   }
   
   public function create ()
