@@ -14,14 +14,9 @@
                       <label for="exampleInputEmail3">NISN</label>
                       <input type="text" class="form-control" id="exampleInputEmail3" placeholder="NISN">
                     </div>
-                    <div class="form-group" data-provide="datepicker">
+                    <div class="form-group">
                       <label for="tanggal">Tanggal lahir</label>
-                      <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-                        <span class="input-group-addon input-group-prepend border-right">
-                            <span class="icon-calendar input-group-text calendar-icon"></span>
-                        </span>
-                        <input type="text" class="form-control">
-                        </div>
+                       <input type="date" class="form-control" id="tgl_lahir" placeholder="NISN">
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Jenis Kelamin</label>
