@@ -17,6 +17,11 @@ class admin extends Controller{
 
         $this->view('layout/footer');
     }
+    public function siswa ()
+    {
+      require_once('admin/siswa.php');
+      $siswa = new siswa();
+    }
     public function table()
     {
         $db = new Databases;
