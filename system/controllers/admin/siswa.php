@@ -8,7 +8,16 @@ class siswa extends Controller{
   
   public function index ()
   {
-    echo('daftarsiswa');
+    $this->view('layout/header');
+    $this->view('layout/navbar', [
+              'title' => 'Siswa',
+              'subTitle' => ''
+                ]);
+    $this->view('layout/sidebar');
+
+    $this->view('admin/siswa/index');
+
+    $this->view('layout/footer');
   }
   
   public function create ()
@@ -16,7 +25,7 @@ class siswa extends Controller{
     $this->view('layout/header');
     $this->view('layout/navbar', [
               'title' => 'Siswa',
-              'sunTitle' => 'Create'
+              'subTitle' => 'Create'
                 ]);
     $this->view('layout/sidebar');
 
