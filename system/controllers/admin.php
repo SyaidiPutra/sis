@@ -1,15 +1,42 @@
 <?php
 
 class admin extends Controller{
+  
+    public function __construct(){
+      $this->db = new Databases;
+    }
     public function index()
     {
         $this->view('layout/header');
-        $this->view('layout/navbar');
+        $this->view('layout/navbar', [
+          'page' => 'Dashboard'
+          ]);
         $this->view('layout/sidebar');
 
         $this->view('admin/index');
 
         $this->view('layout/footer');
+    }
+    public function siswa ($page = 'index')
+    {
+      require_once('admin/siswa.php');
+      $siswa = new siswa();
+      
+      switch ($page) {
+        
+        case 'index':
+          $siswa->index();
+          break;
+        
+        case 'create':
+          $siswa->create();
+          break;
+        
+        default:
+          die('error 404 : Page Not FFond');
+          break;
+      }
+      
     }
     public function table()
     {
