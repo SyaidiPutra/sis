@@ -4,6 +4,7 @@ class admin extends Controller{
   
     public function __construct(){
       $this->db = new Databases;
+      $this->input = new Request;
     }
     public function index()
     {
@@ -30,6 +31,10 @@ class admin extends Controller{
         
         case 'create':
           $siswa->create();
+          break;
+        
+        case 'save':
+          $siswa->save($this->input->post(), '/admin/siswa');
           break;
         
         default:
