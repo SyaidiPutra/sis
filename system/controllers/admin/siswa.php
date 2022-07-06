@@ -34,13 +34,16 @@ class siswa extends Controller{
     $this->view('layout/footer');
   }
   
-  public function save($data)
+  public function save($data, $go)
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $this->db->table('studens')->insert($data);
+      $this->go($go);
     }else{
       echo 'erorr 403 : access denied';
     }
   }
+  
+  
   
 }
