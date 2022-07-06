@@ -10,4 +10,13 @@ class Request {
     }
     return $post;
   }
+  public function get($key = null)
+  {
+    if($key == null){
+      $get = (isset($_GET))? $_GET : null;
+    }else{
+      $get = (isset($_GET[$key]))? $_GET[$key] : null;
+    }
+    return $get;
+  }
 }
