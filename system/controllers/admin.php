@@ -4,6 +4,7 @@ class admin extends Controller{
   
     public function __construct(){
       $this->db = new Databases;
+      $this->input = new Request;
     }
     public function index()
     {
