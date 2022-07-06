@@ -32,6 +32,10 @@ class admin extends Controller{
           $siswa->create();
           break;
         
+        case 'save':
+          $siswa->save($this->input->post(), '/admin/siswa');
+          break;
+        
         default:
           die('error 404 : Page Not FFond');
           break;
