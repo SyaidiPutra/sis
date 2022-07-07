@@ -44,6 +44,23 @@ class siswa extends Controller{
     }
   }
   
+ public function edit($id)
+ {
+   if($id){
+     $this->view('layout/header');
+     $this->view('layout/navbar', [
+              'title' => 'Siswa',
+              'subTitle' => 'Edit'
+                ]);
+      $this->view('layout/sidebar');
+
+    $this->view('admin/siswa/update');
+
+    $this->view('layout/footer');
+   }else{
+     die('erorr 403 : access denied');
+   }
+ }
   
   
 }
