@@ -18,7 +18,7 @@ class admin extends Controller{
 
         $this->view('layout/footer');
     }
-    public function siswa ($page = 'index')
+    public function siswa ($page = 'index', $id = null)
     {
       require_once('admin/siswa.php');
       $siswa = new siswa();
@@ -31,6 +31,10 @@ class admin extends Controller{
         
         case 'create':
           $siswa->create();
+          break;
+        
+        case 'edit':
+          $siswa->edit($id);
           break;
         
         case 'save':
