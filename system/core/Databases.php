@@ -1,12 +1,8 @@
 <?php
 
-class Databases {
+class Databases extends Config{
 
-    protected $host     = 'localhost';
-    protected $username = 'root';
-    protected $password = '';
-    protected $database = 'wordpress';
-    protected $port = '3306';
+    protected $host, $username,$password,$database,$port;
 
     // ==================================
 
@@ -16,9 +12,11 @@ class Databases {
     protected $where_ = '';
     protected $first_ = '';
 
+
     private function con()
     {
-        $mysql = mysqli_connect($this->host, $this->username, $this->password, $this->database, $this->port);
+        $con = $this->config('Databases');
+        $mysql = mysqli_connect($con['host'], $con['user'], $con['pass'], $con['name'], $con['port']);
         if(mysqli_connect_errno()){
             echo("Error Connection MYSQL : " . mysqli_connect_error());
             exit;
