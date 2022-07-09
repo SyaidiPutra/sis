@@ -12,7 +12,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail3">NISN</label>
-                      <input type="readonly" class="form-control" id="exampleInputEmail3" placeholder="NISN">
+                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="NISN" readonly>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail3">Tempat Lahir</label>

@@ -3,14 +3,14 @@
                 <div class="card-body">
                   <h4 class="card-title">Daftar Siswa</h4>
                   <p class="card-description">
-                  <button type="button" class="btn btn-primary btn-icon-text">
+                  <a href="<?= BASE_URL ?>/admin/siswa/create" class="btn btn-primary btn-icon-text">
                           <i class="ti-upload btn-icon-prepend"></i>                                                    
                           Tambah Data
-                        </button>
-                        <button type="button" class="btn btn-dark btn-icon-textt">
+                        </a>
+                        <a type="button" class="btn btn-dark btn-icon-textt">
                           Print
                           <i class="ti-printer btn-icon-append"></i>                                                                              
-                        </button>
+                        </a>
                   </p>
                   <div class="table-responsive">
                     <table class="table siswa">
