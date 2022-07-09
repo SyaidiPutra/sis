@@ -1,0 +1,14 @@
+{
+    "Databases" : {
+        "host" : "localhost",
+        "user" : "root",
+        "pass" : "",
+        "name" : "wordpress",
+        "port" : 3306
+    },
+    "Activation" : {
+        "idHD"  : "",
+        "Key"   : "",
+        "LisKey": ""
+    }
+}
