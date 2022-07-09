@@ -1,7 +1,7 @@
 <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">INPUT DATA SISWA</h4>
+                  <h4 class="card-title">UPDATE DATA SISWA</h4>
                   <p class="card-description">
                     Masukan Data Siswa
                   </p>
@@ -12,7 +12,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail3">NISN</label>
-                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="NISN">
+                      <input type="readonly" class="form-control" id="exampleInputEmail3" placeholder="NISN">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail3">Tempat Lahir</label>
@@ -67,7 +67,7 @@
                         </span>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>
                 </div>
