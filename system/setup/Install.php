@@ -36,7 +36,9 @@ class Install {
                 $this->going();
                
             }elseif($link[1] == 'DBConnect'){
-
+              $page = $page + 1;
+              $this->databases($_POST);
+              $this->going();
             }
             $_SESSION['stap'] = $page;
         }
@@ -48,7 +50,10 @@ class Install {
             case '2':
                 require_once('../system/setup/views/stap2.php');
                 break;
-            
+            case '3':
+                require_once('../system/setup/views/stap3.php');
+                break;
+                
             default:
                 echo 'Error 404 : Page Not Found';
                 break;
@@ -61,14 +66,17 @@ class Install {
         if(mysqli_errno($mysql)){
             $retrun = [
                 "status" => false,
-                "msg" => mysqli_error($mysql)
+                "data" => [
+                  "msg" => mysqli_error($mysql)
+                  ]
             ];
         }else{
             $retrun = [
                 "status" => true
+                "data" => $input
             ];
         }
-        return $retrun;
+        $_GET['config']['db'] = $retrun;
     }
 
     private function going()
