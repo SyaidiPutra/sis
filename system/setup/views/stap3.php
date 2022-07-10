@@ -42,7 +42,7 @@
               <?php if($db['status'] == false) : ?>
               <a href="install/backpage" class="btn btn-Secondary">Kembali</a>
               <?php else: ?>
-              <button type="submit" class="btn btn-primary">Lanjut</button>
+              <button id="btnsave" type="submit" class="btn btn-primary">Lanjut</button>
              <?php endif; ?>
             </div>
         </form>
@@ -50,6 +50,22 @@
 </div>
 
 <script>
+
+var btnid = document.querySelectorAll('#btnsave')
+var pass = document.querySelectorAll('#password')
+var config = document.querySelectorAll('#confirPasswod')
+setInterval(function () {
+  if(pass.value !== ''){
+    if(pass.value == config.value){
+      btnidremoveAttribute('disabled')
+    }else{
+      btnid.setAttribute('disabled', true)
+    }
+  }else{
+    btnid.setAttribute('disabled', true)
+  }
+}, 1000);
+
     // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   'use strict'
