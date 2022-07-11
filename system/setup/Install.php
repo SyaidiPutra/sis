@@ -19,7 +19,7 @@ class Install {
             die('s1');
         }
         if(!isset($_SESSION['stap'])){
-            $_SESSION['stap'] = '1';
+            $_SESSION['stap'] = 1;
             // die();
         }
 
@@ -30,19 +30,16 @@ class Install {
             unset($_SESSION['stap']);
             if($link[1] == 'nextpage'){
                 $page = $page + 1;
-                $this->going();
             }elseif($link[1] == 'backpage'){
                 $page = $page - 1;
-                $this->going();
-               
             }elseif($link[1] == 'DBConnect'){
               $page = $page + 1;
               $this->databases($_POST);
-              $this->going();
             }
             $_SESSION['stap'] = $page;
+            $this->going();
         }
-
+        // die(var_dump($_SESSION['stap']));
         switch ($_SESSION['stap']) {
             case '1':
                 require_once('../system/setup/views/stap1.php');
@@ -55,6 +52,7 @@ class Install {
                 break;
                 
             default:
+                var_dump($_SESSION['stap']);
                 echo 'Error 404 : Page Not Found';
                 break;
         }
@@ -63,20 +61,20 @@ class Install {
     private function databases($input)
     {
         $mysql = mysqli_connect($input['hots'], $input['username'], $input['password'], $input['name'], $input['port']);
-        if(mysqli_errno($mysql)){
+        if(!$mysql){
             $retrun = [
                 "status" => false,
                 "data" => [
-                  "msg" => mysqli_error($mysql)
+                  "msg" => mysqli_connect_error()
                   ]
             ];
         }else{
             $retrun = [
-                "status" => true
+                "status" => true,
                 "data" => $input
             ];
         }
-        $_GET['config']['db'] = $retrun;
+        $_SESSION['config'] = json_encode(["db" => $retrun]);
     }
 
     private function going()

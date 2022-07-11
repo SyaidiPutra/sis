@@ -1,9 +1,8 @@
-<?php require_once('head.php'); $db = $_GET['config']['db']; ?>
+<?php require_once('head.php'); $db = json_decode($_SESSION['config'], true)['db']; ?>
 <div class="row">
     <div class="col-md-4 d-sm-block d-none">gambar</div>
     <div class="col-md">
-       
-        <h3><?= ($db['status'] == true)? 'Hore, Waktunya Menyiapkan Account Admin' : 'Yah, Gagal Koneksi' ?></h3>
+        <h3><?= ($db['status'])? 'Hore, Waktunya Menyiapkan Account Admin' : 'Yah, Gagal Koneksi' ?></h3>
         <form action="install/UserCreate" method="post" class="mt-3 needs-validation" novalidate>
             <?php if($db['status'] == true): ?>
             <div class="row">
@@ -18,29 +17,21 @@
                 </div>
                 <div class="col-md-6">
                     <label for="password" class="form-label">Password</label>
-                    <div class="has-validation">
-                    <input type="text" class="form-control" id="password" name="password" required>
-                        <div class="invalid-feedback">
-                            Mohon Masukan Password
-                        </div>
-                    </div>
+                    <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="col-md-6">
                     <label for="confirPasswod" class="form-label">Konfirmasi</label>
-                    <div class="has-validation">
                     <input type="password" class="form-control" id="confirPasswod" name="confirPasswod" required>
-                        <div class="invalid-feedback">
-                            Mohon Masukan Konfirmasi
-                        </div>
-                    </div>
                 </div>
             </div>
+            <p  id="notifpass" class="text-danger">Password Tidak Sama dengan Konfirmasi</p>
             <?php else: ?>
             <p>Yah Gagal Menyiapkan Databasenya silahkan cek kembali koneksinya!</p>
+            <p>Error Databases : <?= $db['data']['msg'] ?></p>
             <?php endif; ?>
             <div class="text-end mt-3">
               <?php if($db['status'] == false) : ?>
-              <a href="install/backpage" class="btn btn-Secondary">Kembali</a>
+              <a href="install/backpage" class="btn btn-secondary">Kembali</a>
               <?php else: ?>
               <button id="btnsave" type="submit" class="btn btn-primary">Lanjut</button>
              <?php endif; ?>
@@ -51,18 +42,26 @@
 
 <script>
 
-var btnid = document.querySelectorAll('#btnsave')
-var pass = document.querySelectorAll('#password')
-var config = document.querySelectorAll('#confirPasswod')
+var btnid = document.getElementById('btnsave')
+var pass = document.getElementById('password')
+var config = document.getElementById('confirPasswod')
+var norif = document.getElementById('notifpass')
 setInterval(function () {
   if(pass.value !== ''){
     if(pass.value == config.value){
-      btnidremoveAttribute('disabled')
+      btnid.removeAttribute('disabled')
+      norif.style.display = 'none';
     }else{
       btnid.setAttribute('disabled', true)
+      if(config.value !== ""){
+        norif.style.display = '';
+      }else{
+        norif.style.display = 'none';
+      }
     }
   }else{
     btnid.setAttribute('disabled', true)
+    norif.style.display = 'none';
   }
 }, 1000);
 

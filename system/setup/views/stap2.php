@@ -35,7 +35,7 @@
                 <div class="col-md-6">
                     <label for="password" class="form-label">password</label>
                     <div class="has-validation">
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control" id="password" name="password">
                         <div class="invalid-feedback">
                             Mohon Masukan password
                         </div>
