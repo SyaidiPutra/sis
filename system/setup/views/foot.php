@@ -1,4 +1,4 @@
-<?= $_SESSION['stap'] ?>
+<!-- <?= $_SESSION['stap'] ?> -->
             </div>
             </div>
           </div>

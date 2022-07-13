@@ -4,13 +4,9 @@ class Install {
 
     public function run()
     {
-        // session_start();   
-
-        // unset($_SESSION['stap']);
-
-        // die(var_dump($_SESSION));
-
-        $link = explode('/',trim($_SERVER['PATH_INFO'],'/'));
+        
+        $link = (isset($_SERVER['PATH_INFO']))? $_SERVER['PATH_INFO'] : '';
+        $link = explode('/',trim($link,'/'));
         
         if($link[0] !== 'install' ){
             // header('Status: 301 Moved Permanently', false, 301);
@@ -35,6 +31,11 @@ class Install {
             }elseif($link[1] == 'DBConnect'){
               $page = $page + 1;
               $this->databases($_POST);
+            }elseif($link[1] == 'UserCreate'){
+                $page = $page + 1;
+                $this->useradmin($_POST);
+            }elseif($link[1] == 'proses'){
+                $this->intall($link[2]);
             }
             $_SESSION['stap'] = $page;
             $this->going();
@@ -50,12 +51,36 @@ class Install {
             case '3':
                 require_once('../system/setup/views/stap3.php');
                 break;
-                
+            case '4':
+                require_once('../system/setup/views/stap4.php');
+                break;
+            case '5':
+                require_once('../system/setup/views/proses.php');
+                break;
             default:
                 var_dump($_SESSION['stap']);
                 echo 'Error 404 : Page Not Found';
                 break;
         }
+    }
+
+    private function intall($sesi)
+    {
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            die();
+            switch ($sesi) {
+                case 'config':
+                    
+                    break;
+            }
+        }
+    }
+
+    private function useradmin($data)
+    {
+        $old = json_decode($_SESSION['config'], true);
+        $new = array_merge($old, ['account' => $data]);
+        $_SESSION['config'] = json_encode($new);
     }
 
     private function databases($input)

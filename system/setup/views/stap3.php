@@ -7,11 +7,20 @@
             <?php if($db['status'] == true): ?>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="username" class="form-label">Port</label>
+                    <label for="username" class="form-label">Username</label>
                     <div class="has-validation">
                     <input type="text" class="form-control" id="username" name="username" required>
                         <div class="invalid-feedback">
                             Mohon Masukan Username
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="email" class="form-label">Email</label>
+                    <div class="has-validation">
+                    <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="invalid-feedback">
+                            Mohon Masukan Email
                         </div>
                     </div>
                 </div>
