@@ -36,6 +36,7 @@ class Install {
                 $this->useradmin($_POST);
             }elseif($link[1] == 'proses'){
                 $this->intall($link[2]);
+                exit;
             }
             $_SESSION['stap'] = $page;
             $this->going();
@@ -67,7 +68,7 @@ class Install {
     private function intall($sesi)
     {
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            die();
+            header("Content-Type: application/json; charset=UTF-8");
             switch ($sesi) {
                 case 'config':
                     
