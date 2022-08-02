@@ -6,7 +6,7 @@ this project is in progress
 Feature
 -------
 
-- [ ] Student Data
+- [*] Student Data
 - [ ] Teacher Data
 - [ ] Class room
 - [ ] Gradebook
