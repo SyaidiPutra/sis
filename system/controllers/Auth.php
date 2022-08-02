@@ -5,7 +5,7 @@ class Auth {
       $this->db = new Databases;
       $this->input = new Request;
     }
-    public function index()
+    public function indesx()
     {
       
     }
